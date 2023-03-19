@@ -1,0 +1,153 @@
+PRAISE´s ASSIGNMENT
+
+---QUESTION 3 Number of country with highest and lowest appearance in the world cup
+
+WITH
+all_world_cup AS (
+SELECT
+'wc 2002'AS world_cup_2002,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2002
+UNION ALL
+SELECT
+'wc 2006'AS world_cup_2006,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2006 AS world_cup_2006
+UNION ALL
+SELECT
+'wc 2010'AS world_cup_2010,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2006 AS world_cup_2010
+UNION ALL
+SELECT
+'wc 2014'AS world_cup_2014,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2014
+UNION ALL
+SELECT
+'wc 2018'AS world_cup_2018,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2018
+)
+
+SELECT
+team,
+COUNT (*) AS numbers_of_team_appearance
+FROM 
+all_world_cup
+GROUP BY team
+ORDER BY team DESC
+;
+
+
+---Question 4-10 Country with highest and lowest games played
+
+WITH
+all_world_cup AS (
+SELECT
+'wc 2002'AS world_cup_2002,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2002
+UNION ALL
+SELECT
+'wc 2006'AS world_cup_2006,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2006 AS world_cup_2006
+UNION ALL
+SELECT
+'wc 2010'AS world_cup_2010,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2006 AS world_cup_2010
+UNION ALL
+SELECT
+'wc 2014'AS world_cup_2014,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2014
+UNION ALL
+SELECT
+'wc 2018'AS world_cup_2018,
+team,
+points,
+games_played,
+win,
+loss,
+goal_for,
+goal_against
+FROM fifa_2018
+)
+
+SELECT
+team,
+MAX(games_played) AS maximum_games_played,
+MIN(games_played) AS minimum_games_played,
+MAX(win) AS maximum_games_won,
+MIN(win) AS minimum_games_won,
+MAX(loss) AS maximum_games_loss,
+MIN(loss) AS minimum_games_loss,
+MAX(goal_for) AS maximum_goal_for,
+MIN(goal_for) AS minimum_goal_for,
+MAX(goal_against) AS maximum_goal_against,
+MIN(goal_against) AS minimum_goal_against,
+MAX(points) AS maximum_points,
+MIN(points) AS minimum_points
+FROM 
+all_world_cup
+GROUP BY team
+ORDER BY team DESC
+;
+
+
